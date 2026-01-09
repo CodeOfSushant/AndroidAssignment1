@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">उपयोगकर्ता प्रोफ़ाइल</string>
+    <string name="name_label">नाम</string>
+    <string name="email_label">ईमेल</string>
+    <string name="age_label">आयु</string>
+    <string name="name_hint">सुशांत</string>
+    <string name="age_hint">18</string>
+    <string name="email_hint">abc@gmail.com</string>
+    <string name="go_back_button_label">वापस जाएँ</string>
+    <string name="button_submit_label">जमा करें</string>
+</resources>
