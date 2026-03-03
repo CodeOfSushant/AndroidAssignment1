@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.MyApp.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+
+    <style name="TextAppearance.MyApp.Headline" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+</resources>
