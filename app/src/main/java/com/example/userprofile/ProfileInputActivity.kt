@@ -6,24 +6,24 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.userprofile.databinding.ActivityProfileinputBinding
 
 class ProfileInputActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityProfileinputBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profileinput)
-        val editTextName = findViewById<EditText>(R.id.editTextName)
-        val editTextAge = findViewById<EditText>(R.id.editTextAge)
-        val editTextEmail = findViewById<EditText>(R.id.editTextEmail)
-        val buttonSubmit = findViewById<Button>(R.id.buttonSubmit)
+        binding = ActivityProfileinputBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        buttonSubmit.setOnClickListener {
+        binding.buttonSubmit.setOnClickListener {
             lateinit var name: String
             lateinit var age: String
             lateinit var email: String
             var isValid = true
 
-            try {
-                name = editTextName.text.toString()
+                name = binding.editTextName.text.toString()
                 if (name.isEmpty() || !name.matches("^[A-Za-z\\s]+$".toRegex()) || name.length < 2) {
                     Toast.makeText(
                         this,
@@ -32,22 +32,31 @@ class ProfileInputActivity : AppCompatActivity() {
                     ).show()
                     isValid = false
                 }
-                age = editTextAge.text.toString()
-                if (age.toInt() <= 0 || age.isEmpty()) {
+                age = binding.editTextAge.text.toString()
+                if (age.isEmpty()) {
                     Toast.makeText(this, "Please Enter Valid Age", Toast.LENGTH_SHORT).show()
                     isValid = false
+                }else {
+                    try {
+                        val ageInt = age.toInt()
+                        if (ageInt <= 0) {
+                            Toast.makeText(this, "Please Enter Valid Age", Toast.LENGTH_SHORT).show()
+                            isValid = false
+                        }
+                    } catch (e: NumberFormatException) {
+                        Toast.makeText(this, "Please Enter Valid Age", Toast.LENGTH_SHORT).show()
+                        isValid = false
+                    }
                 }
-                email = editTextEmail.text.toString()
+
+                email = binding.editTextEmail.text.toString()
                 if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email)
                         .matches()
                 ) {
                     Toast.makeText(this, "Enter Valid Email", Toast.LENGTH_SHORT).show()
                     isValid = false
                 }
-            } catch (e: NumberFormatException) {
-                Toast.makeText(this, "Please Enter Valid Age", Toast.LENGTH_SHORT).show()
-                isValid = false
-            }
+
             if (isValid) {
                 val intent = Intent(this, ProfileDisplayActivity::class.java)
                 val bundle = Bundle()
@@ -57,7 +66,7 @@ class ProfileInputActivity : AppCompatActivity() {
                 intent.putExtras(bundle)
                 startActivity(intent)
             }
-            if (!isValid) {
+            else {
                 Toast.makeText(this, " Please Enter correct Details First", Toast.LENGTH_SHORT)
                     .show()
             }
