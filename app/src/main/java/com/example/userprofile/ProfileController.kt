@@ -21,11 +21,11 @@ class ProfileController(args: Bundle?) : Controller(args) {
         val age = args.getString("Age")
         val email = args.getString("Email")
 
-        val textViewName = view.findViewById<TextView>(R.id.textViewName1)
+        val textViewName = view.findViewById<TextView>(R.id.tvName)
         textViewName.text = "Name:  $name"
-        val textViewAge = view.findViewById<TextView>(R.id.textViewAge1)
+        val textViewAge = view.findViewById<TextView>(R.id.tvAge)
         textViewAge.text = "Age: $age"
-        val textViewEmail = view.findViewById<TextView>(R.id.textViewEmail1)
+        val textViewEmail = view.findViewById<TextView>(R.id.tvEmail)
         textViewEmail.text = "Email: $email"
         val backButton = view.findViewById<Button>(R.id.btnback)
         backButton.setOnClickListener {

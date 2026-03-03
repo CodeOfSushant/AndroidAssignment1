@@ -23,7 +23,7 @@ class ProfileInputActivity : AppCompatActivity() {
             lateinit var email: String
             var isValid = true
 
-                name = binding.editTextName.text.toString()
+                name = binding.etName.text.toString()
                 if (name.isEmpty() || !name.matches("^[A-Za-z\\s]+$".toRegex()) || name.length < 2) {
                     Toast.makeText(
                         this,
@@ -32,7 +32,7 @@ class ProfileInputActivity : AppCompatActivity() {
                     ).show()
                     isValid = false
                 }
-                age = binding.editTextAge.text.toString()
+                age = binding.etAge.text.toString()
                 if (age.isEmpty()) {
                     Toast.makeText(this, "Please Enter Valid Age", Toast.LENGTH_SHORT).show()
                     isValid = false
@@ -49,7 +49,7 @@ class ProfileInputActivity : AppCompatActivity() {
                     }
                 }
 
-                email = binding.editTextEmail.text.toString()
+                email = binding.etEmail.text.toString()
                 if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email)
                         .matches()
                 ) {

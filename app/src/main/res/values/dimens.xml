@@ -6,4 +6,7 @@
     <dimen name="spacing_large">24dp</dimen>
     <dimen name="view_margin_horizontal">16dp</dimen>
     <dimen name="view_padding">16dp</dimen>
+    <dimen name="text_size">24sp</dimen>
+    <dimen name="spacing_extra_large">32dp</dimen>
+    <dimen name="text_size_large">32sp</dimen>
 </resources>
